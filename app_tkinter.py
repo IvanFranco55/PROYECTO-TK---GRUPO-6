@@ -33,7 +33,12 @@ class AppSupermercado:
         self.crear_pestana_ventas()
 
         self.mi_super.registrar_cliente(Cliente("Ivan Franco"))
-        self.mi_super.registrar_cliente(Cliente("Juan Pérez"))
+        self.mi_super.registrar_cliente(Cliente("Roberto Fernandez"))
+        self.mi_super.registrar_cliente(Cliente("Mariano Insaurralde"))
+        self.mi_super.registrar_cliente(Cliente("Francisco Sosa"))
+        self.mi_super.registrar_cliente(Cliente("Maximiliano Castañon"))
+        self.mi_super.registrar_cliente(Cliente("Gonzalo Vallejos"))
+        self.mi_super.registrar_cliente(Cliente("Elio Segura"))
         self.actualizar_combobox_clientes()
 
 
