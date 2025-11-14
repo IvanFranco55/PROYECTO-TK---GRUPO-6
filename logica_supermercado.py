@@ -50,38 +50,31 @@ class Supermercado:
         self.clientes.append(cliente)
 
     def realizar_compra(self, cliente):
-
         
         if not cliente.carrito:
-            return False 
+            return "El carrito está vacío." 
 
         stock_suficiente = True
         for nombre_prod, cantidad_deseada in cliente.carrito.items():
             producto = self.buscar_producto(nombre_prod)
             
             if not producto:
-                print(f"ERROR: Producto '{nombre_prod}' no existe en el inventario.")
-                return False
+                return f"ERROR: Producto '{nombre_prod}' no existe en el inventario." 
             
             if producto.stock < cantidad_deseada:
-                print(f"ERROR: Stock insuficiente para '{nombre_prod}'. Solicitados: {cantidad_deseada}, Disponibles: {producto.stock}")
-                return False
+                return f"Stock insuficiente para '{nombre_prod}'. Solicitados: {cantidad_deseada}, Disponibles: {producto.stock}"
 
         total_compra = 0
         for nombre_prod, cantidad_comprada in cliente.carrito.items():
             producto = self.buscar_producto(nombre_prod)
-            
             producto.actualizar_stock(-cantidad_comprada)
-            
             subtotal = producto.precio * cantidad_comprada
             total_compra += subtotal
                 
         cliente.vaciar_carrito()
-        return total_compra 
-
+        return total_compra
 
 def crear_supermercado():
-    """Inicializa el supermercado con algunos productos."""
     super_vecino = Supermercado("El Vecino")
     
     p1 = Producto("Manzana", 150.50, "Frutas", 100)
@@ -97,5 +90,4 @@ def crear_supermercado():
     return super_vecino
 
 def mostrar_resumen(supermercado):
-    """Muestra un resumen del inventario (función de requisito)."""
     pass

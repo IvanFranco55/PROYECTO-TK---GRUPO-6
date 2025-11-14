@@ -322,7 +322,8 @@ class AppSupermercado:
             self.actualizar_lista_productos()
             self.mostrar_carrito_actual()
         else:
-            messagebox.showerror("Error de Compra", "Hubo un problema al procesar la compra. Verifique el stock o el producto.")
+            error_msg = resultado_compra
+            messagebox.showerror("Error de Compra", f"No se pudo completar la compra.\n\nMotivo:\n{error_msg}")
             self.mostrar_carrito_actual()
 
 if __name__ == "__main__": 
